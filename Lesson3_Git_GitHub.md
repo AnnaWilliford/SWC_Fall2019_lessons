@@ -246,8 +246,8 @@ You can see how to read the ouput of `git diff` command [here](https://www.atlas
 Now, let's see how to turn an existing directory into git repository. You might want to track files for some of your existing projects. Maybe for `SCW` directory? How will you place this directory under Git control?
 
 ```
-#Go to SWC_spring2019
-$ cd ~/Desktop/SWC_spring2019
+#Go to SCW
+$ cd ~/Desktop/SCW
 
 #initialize
 $ git init
@@ -259,8 +259,8 @@ $ git status
 $ git add .
 
 #commit changes 
-$ git commit -m "added SWC_spring2019 directory"
-
+$ git commit -m "added SCW directory"
+git show 
 #check commit history
 $ git log
 ```
@@ -274,19 +274,18 @@ $ git show --name-only 1e228d70f
 As you continue working on this project, you will be adding new directories and files to it.
 Let's try it.
 
-**Challenge 3.2**
-```
-Make a new directory `git_github` in `SWC_spring2019`. 
-Make a file called git_steps.txt inside `git_github`. 
+**Challenge**
+``` 
+Make a new file called git_steps.txt inside `SCW/Lesson3_Git_GitHub`. 
 Record `git` commands you must use to start tracking your changes.
-Save this file and commit `git_github` directory to Git.
+Save this file and commit changes to Git. Run `git log` - can you see the history of your changes and what exactly was changed each time?
 
-NOTE:`git init` should only be run one time in the root directory of your project. 
+NOTE:`git init` should only be run one time in the root directory of your project. Since we already initialized SCW directory, you do not need to run `git init` again.
 ```
  
 ## 4. Accessing older versions
 
-The clear advantage of tracking your documents with Git is that you can always go back to the previous version. Let's see how this works.
+One clear advantage of tracking your documents with Git is that you can always go back to the previous version. Let's see how this works.
 
 The output of `git log` provides all the information you need to retrieve the older version of the document.
 
