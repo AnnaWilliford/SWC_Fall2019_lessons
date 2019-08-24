@@ -353,21 +353,21 @@ $ git checkout -- git_steps.txt
 $ cat git_steps.txt
 ```
 
-## 6. GitHub: share your repository with the world
+## 5. GitHub: share your repository with the world
 
 So far, our work was restricted to the local machine. But if you want to share your repositories with your colleagues, it would be nice to have a central place where everyone could make their repositories available for comments/suggestions/collaborations. Github is a service that allows us to do that. 
 
 If you have not created Github account, please go to github.com and do it now. 
 
-Now we want to create repository that will be a remote copy of our local `SWC_spring2019` repository. 
+Now we want to create repository that will be a remote copy of our local `SCW` repository. 
 ```
 #from your github account:
 Click on 'new repository'
-Repository name: 'SWC_spring2019'
+Repository name: 'SCW'
 Type: public
 Click on 'create repository'
 ```
-You have just created remote empty `SWC_spring2019` repository. This repository has a specific identifier URL associated with it. We now let our local machine know that we have a remote location for our local repository.
+You have just created remote empty `SCW` repository. This repository has a specific identifier URL associated with it. We now let our local machine know that we have a remote location for our local repository.
 ```
 #on your local machine
 $ git remote add origin URL
