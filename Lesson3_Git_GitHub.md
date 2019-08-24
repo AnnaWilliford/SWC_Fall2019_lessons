@@ -38,7 +38,8 @@ Unless there are conflicts, you can combine two sets of changes onto the same ba
 
 ![](http://swcarpentry.github.io/git-novice/fig/merge.svg)
 
-**What is Github?** is a cloud service that hosts repositories, it is a central hub to hold all our local repositories. Github has additional functionality that enables efficient collaboration.
+**What is Github?**  
+Github is a cloud service that hosts repositories, it is a central hub to hold all our local repositories. Github has additional functionality that enables efficient collaboration.
 
 ![](https://github.com/AnnaWilliford/2017-11-11-UTA/raw/gh-pages/workshop/images/github_bigPicture.png)
 
