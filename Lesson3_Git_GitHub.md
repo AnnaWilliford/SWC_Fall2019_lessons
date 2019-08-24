@@ -23,7 +23,7 @@ Does this look familiar?
 
 ![](https://github.com/AnnaWilliford/2017-11-11-UTA/raw/gh-pages/workshop/images/Final.png)
 
-**Git**
+**What is Git?**  
 Git is a version control software. It is used to track changes in documents on your local machine. All file versions and revision history are saved to a folder known as **repository**.
 
 Version control systems start with a base version of the document and then save just the changes you made at each step of the way. You can think of it as a tape: if you rewind the tape and start at the base document, then you can play back each change and end up with your latest version.
@@ -38,8 +38,7 @@ Unless there are conflicts, you can combine two sets of changes onto the same ba
 
 ![](http://swcarpentry.github.io/git-novice/fig/merge.svg)
 
-**Github** is a cloud service that hosts repositories, it is a central hub to hold all our local repositories. Github has additional functionality that enables efficient collaboration.
-
+**What is Github?** is a cloud service that hosts repositories, it is a central hub to hold all our local repositories. Github has additional functionality that enables efficient collaboration.
 
 ![](https://github.com/AnnaWilliford/2017-11-11-UTA/raw/gh-pages/workshop/images/github_bigPicture.png)
 
