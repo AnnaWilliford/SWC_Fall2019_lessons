@@ -49,32 +49,15 @@ As you can see, there are many ways users can interact with remote repositories.
 
 Git should be already installed on your machines. If you are on Windows, Git came with your gitbash installation. If you are on Mac, Git has been preinstalled on your system.
 
-
 When we use Git on a new computer for the first time, we need to configure a few things. Below are a few examples of configurations we will set as we get started with Git:
 
 - our name and email address,
-- to colorize our output,
-- what our preferred text editor is,
 - and that we want to use these settings globally (i.e. for every project)
 
 On a command line, Git commands are written as `git verb`, where `verb` is what we actually want to do. 
 ```shell
 $ git config --global user.name "Your username"
 $ git config --global user.email "Your email" 
-$ git config --global color.ui "auto"
-
-#add a text editor of your choice 
-#Mac: Text Wrangler
-$ git config --global core.editor "edit -w"
-
-#Windows: notepad
-$ git config --global core.editor "notepad"
-
-#Windows: notepad++
-$ git config --global core.editor "C:/Program Files (x86)/Notepad++/notepad++.exe"
-
-#Linux
-$ git config --global core.editor "nano"
 ```
 The four commands we just ran above only need to be run once: the flag --global tells Git to use the settings for every project, in your user account, on this computer.
 
@@ -97,7 +80,7 @@ We will explore some of them next.
 ## 3. Track your documents with Git
 
 We are now ready to use Git.
-To start with, let's make a new folder `git_test` on your Desktop, outside `SWC_spring2019` directory.
+To start with, let's make a new folder `git_test` on your Desktop, outside `SCW` directory.
 
 Suppose you started working on your thesis. You create a folder `Thesis` inside `git_test` . 
 ```shell
@@ -123,7 +106,9 @@ $ ls -a
 
 $ cat notes.txt
 ```
-We can ask now if our new file, `notes.txt` is being tracked. We can do this with `git status` command
+Suppose you are planning to track changes to this file with Git. We just a made this file, but it is not under control of Git yet. 
+To be tracked by Git, the file must be inside the folder that is 'knows' about.  To check if Git 'knows' about our `Thesis` folder, use `git status` command:
+
 ```shell
 $ git status
 fatal: Not a git repository (or any of the parent directories): .git
@@ -160,7 +145,7 @@ Untracked files:
 
 nothing added to commit but untracked files present (use "git add" to track)
 ```
-You can see that initializing a directory makes it visible to Git. Now Git tells us what files are in the directory and what is their status. In our case, Git says that there is notes.txt file and it is not tracked. Git also tells us that we need to use `git add` command to start tracking this file.
+You can see that initializing a directory makes it visible to Git. Now Git tells us what files are in the directory and what is their status. In our case, Git says that there is `notes.txt` file and it is not tracked. Git also tells us that we need to use `git add` command to start tracking this file.
 ```
 $ git add notes.txt
 
@@ -213,7 +198,7 @@ $ git log --oneline
 ```
 In summary, here are the steps that must be completed to track changes in your documents with Git.
 
-- [x] Initialize your folder with `git init` command. This is done only **one** time for every new parent directory
+- [x] Initialize your folder with `git init` command. This is done only **one** time for every new parent directory(or repository)
 - [x] Prepare new/modified files for saving(committing) with `git add` command
 - [x] Create a permanent copy of your new/modified file with `git commit -m "message" `
 
@@ -222,7 +207,7 @@ In summary, here are the steps that must be completed to track changes in your d
 
 
 
- **Challenge 3.1:**
+ **Challenge**
 ```
  Open notes.txt in text editor and add a line of text to it. 
  Save your changes and track your changes with Git.
@@ -251,13 +236,14 @@ In summary, here are the steps that must be completed to track changes in your d
 
 Now, run `git log`.  The output of `git log` tells you the history of your changes. Your commit messages are very important, in case you want to restore an old version of the document, they will help you to pick out the version you want.
 
-Your versions (or commits) have unique identifiers. In addition, the most recent version can be identified by `HEAD`. You can see differences betwee any 2 versions by using `git diff` command:
+Your versions (or commits) have unique identifiers. In addition, the most recent version can be identified by `HEAD`. You can see differences between any 2 versions by using `git diff` command:
 ```shell
 #you can specify only first few characters of the commit identifier.
 $ git diff 851e745b2 HEAD notes.txt
 ```
- 
-Now, let's see how to turn an existing directory into git repository. You might want to track files for some of your existing projects. Maybe for `SWC_spring2019` directory? How will you place this directory under Git control?
+You can see how to read the ouput of `git diff` command [here](https://www.atlassian.com/git/tutorials/saving-changes/git-diff)
+
+Now, let's see how to turn an existing directory into git repository. You might want to track files for some of your existing projects. Maybe for `SCW` directory? How will you place this directory under Git control?
 
 ```
 #Go to SWC_spring2019
