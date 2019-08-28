@@ -38,21 +38,29 @@ The key to understanding `ggplot2` is thinking about a figure in layers. This id
 
 ## Quickstart
 
-We will be working in `Lesson5_DataVisualizationR` folder. Please copy `gapminder.txt` from `Data` folder to `Lesson5_DataVisualizationR` folder. Navigate to `Lesson5_DataVisualizationR` folder in RStudio and set this folder as your working directory. Open a new file, save as `ggplot.R`
+We will be working in `Lesson5_DataVisualizationR` folder. Please copy `gapminder.txt` from `Data` folder to `Lesson5_DataVisualizationR` folder. Navigate to `Lesson5_DataVisualizationR` folder in RStudio and set this folder as your working directory.  
 
-We must first make sure our **gapminder** dataset has been loaded into `R`.
+We will need to install `ggplot2` package. Let's use console window to do that:
+```{r}
+install.packages("ggplot2")
+```
+Now let's work in scripting mode (text editor) so we can save all our commands to file. Open a new file, save as `ggplot.R`. Make sure your new file is visible in `Lesson5_DataVisualizationR`folder under `Files` tab in the bottom-right pannel.
+
+Remember that in order to work with `ggplot2` package, we need to load it into R.
+```{r}
+#load package into R
+library(ggplot2)
+```
+
+We now must load our **gapminder** dataset into `R`.
 
 ```{r load_gaminder, message=FALSE}
 gapminder <- read.table("gapminder.txt", header=TRUE, sep="\t")
 ```
-Let's start off with an example:
+
+We are now ready to plot. Let's start off with an example:
 
 ```{r lifeExp-vs-gdpPercap-scatter, message=FALSE}
-#install ggplot2 package
-install.packages("ggplot2")
-#load package into R
-library(ggplot2)
-
 ggplot(data = gapminder, aes(x = gdpPercap, y = lifeExp)) +
   geom_point()
 ```
