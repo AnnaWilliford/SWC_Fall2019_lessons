@@ -1,16 +1,14 @@
-# SWC_fall2018_Lesson4_ggplot2
+# Software Carpentry Workshop
 
-Software Carpentry Workshop: Lesson4: Data visualization with ggplot2
-===
-Instructor: Rich
-Time: 1.5 hours
+## Lesson4: Data visualization with ggplot2
+This lesson is based on [this Software Carpentry lesson](http://swcarpentry.github.io/r-novice-gapminder/08-plot-ggplot2/index.html)
 
-Note: add "?both" to the end of the URL if you would like to view both the markdown and rendered document side-by-side.
+#### Please make sure your directory structure is setup as described [here](https://github.com/uta-carpentries/SoftwareCarpentryWorkshops_general/blob/master/Data_DirectoryStructure_Setup.md)
+
 
 ## Introduction
-R is one of the most powerful pieces of software for visualizing data. It is even possible to produce publication-quality graphics quite easily and reproducibly. Today, we will give you a flavor of some of the quality plotting you can produce quite readily using the `R` package [`ggplot2`](http://ggplot2.tidyverse.org/). `ggplot2` is perhaps the best piece of software for intuitively producing high-quality figures, regardless of programming language (with some packages in `Python` probably being second best). We will continue using the **gapminder** dataset and will visualize some of the trends in these data in R with `ggplot2`. Check out some of the interesting dynamic plots available from the [Gapminder website](https://www.gapminder.org/tools/#_chart-type=mountain). By the end of this lesson you will know the basic principles necessary to produce similar, static versions of many of the example plots you are looking at. 
+R is one of the most powerful pieces of software for visualizing data. It is even possible to generate publication-quality graphics. Today, we will give you a flavor of some of the quality plotting you can produce using the `R` package [`ggplot2`](http://ggplot2.tidyverse.org/). `ggplot2` is perhaps the best package for intuitive generation of high-quality figures. We will continue using the **gapminder** dataset and will visualize some of the trends in these data with `ggplot2`. Check out some of the interesting dynamic plots available from the [Gapminder website](https://www.gapminder.org/tools/#$chart-type=bubbles). By the end of this lesson you will know the basic principles necessary to produce similar, static versions of many of the example plots you are looking at. 
 
-Note: This lesson is modified from the [Software Carpentry workshop on data visualization in R](https://swcarpentry.github.io/r-novice-gapminder/08-plot-ggplot2/).
 
 ## Objectives
 - To be able to use `ggplot2` to generate publication quality graphics.
@@ -18,7 +16,7 @@ Note: This lesson is modified from the [Software Carpentry workshop on data visu
 #### Keypoints
 - Use `ggplot2` to create plots.
 - Think about graphics in layers: aesthetics, geometry, statistics, scale transformation, and grouping.
----
+
 
 ## Background
 
@@ -32,8 +30,7 @@ There are three main plotting systems in R, the [base plotting system][base], th
 
 Today we'll be learning about the `ggplot2` package, because it is the most effective for creating publication quality graphics.
 
-`ggplot2` is built on the *grammar of graphics*, the idea that any plot can be
-expressed from the same set of components: a **data** set, a **coordinate system**, and a set of **geoms**--the visual representation of data points.
+`ggplot2` is built on the *grammar of graphics*, the idea that any plot can be generated from the same set of components: a **data** set, a **coordinate system**, and a set of **geoms** (the visual representation of data points).
 
 The key to understanding `ggplot2` is thinking about a figure in layers. This idea may be familiar to you if you have used image editing programs like Photoshop, Illustrator, or Inkscape.
 [Main components of ggplot](https://darencard.github.io/public_resources/R/ggplot_intro_slides.pdf)
@@ -41,7 +38,7 @@ The key to understanding `ggplot2` is thinking about a figure in layers. This id
 
 ## Quickstart
 
-Start in SWC_fall2018 directory. Make a new folder called `ggplot`. Copy `gapminder.txt` from `Data` folder to `ggplot` folder. Go to `ggplot` folder. Set your working directory to `ggplot`
+We will be working in  Copy `gapminder.txt` from `Data` folder to `ggplot` folder. Go to `ggplot` folder. Set your working directory to `ggplot`
 
 We must first make sure our **gapminder** dataset has been loaded into `R`, if it isn't already.
 
