@@ -38,7 +38,7 @@ The key to understanding `ggplot2` is thinking about a figure in layers. This id
 
 ## Quickstart
 
-We will be working in `Lesson5_DataVisualizationR` folder. Please copy `gapminder.txt` from `Data` folder to `Lesson5_DataVisualizationR` folder. Navigate to `Lesson5_DataVisualizationR` folder in RStudio and set this folder as your working directory. 
+We will be working in `Lesson5_DataVisualizationR` folder. Please copy `gapminder.txt` from `Data` folder to `Lesson5_DataVisualizationR` folder. Navigate to `Lesson5_DataVisualizationR` folder in RStudio and set this folder as your working directory. Open a new file, save as `ggplot.R`
 
 We must first make sure our **gapminder** dataset has been loaded into `R`.
 
