@@ -181,7 +181,7 @@ ggplot(data=sweden, aes(x=year, y=lifeExp)) + geom_bar(stat="identity")
 #or
 ggplot(data=sweden, aes(x=year, y=lifeExp)) + geom_col()
 ```
-We ran into problems using geom_bar() because the `stat` argument in `geom_bar()` is set to `count`. This means that the count of observation for `x` varaible will be plotted, so `y` should not be specified. That is why you see "Error: stat_count() must not be used with a y aesthetic."  So you either need to specify `stat="identity"` for `geom_bar()` or use `geom_col` where `stat="identity"` is a default setting.  
+We ran into problems using `geom_bar()` because the `stat` argument in `geom_bar()` is set to `count`. This means that the count of observation for `x` varaible will be plotted, so `y` should not be specified. That is why you see "Error: stat_count() must not be used with a y aesthetic."  So you either need to specify `stat="identity"` for `geom_bar()` or use `geom_col` where `stat="identity"` is a default setting.  
 
 `Stat` is a very useful argument as it allows you to plot transformed data. Say, you want to plot the mean values of life expectancy over years and countries for every continent.  
 
@@ -293,7 +293,33 @@ ggplot(data = az.countries, aes(x = year, y = lifeExp, color=continent)) +
     title = "Figure 1",      # main title of figure
     color = "Continent"      # title of legend
   ) +
-  theme(axis.text.x=element_blank(), axis.ticks.x=element_blank())
+  theme(axis.text.x=element_text(angle=45), axis.ticks.x=element_blank())
+```
+
+## Exporting the plot . 
+
+The `ggsave()` function allows you to export a plot created with `ggplot`. You can specify the dimension and resolution of your plot by adjusting the appropriate arguments (`width`, `height` and `dpi`) to create high quality graphics for publication. In order to save the plot from above, we first assign it to a variable `lifeExp_plot`, then tell `ggsave` to save that plot in `png` format.
+
+```{r theme}
+lifeExp_plot <- ggplot(data = az.countries, aes(x = year, y = lifeExp, color=continent)) +
+  geom_line() + facet_wrap( ~ country) +
+  labs(
+    x = "Year",              # x axis title
+    y = "Life expectancy",   # y axis title
+    title = "Figure 1",      # main title of figure
+    color = "Continent"      # title of legend
+  ) +
+  theme(axis.text.x=element_text(angle=45), axis.ticks.x=element_blank())
+
+ggsave(filename = "lifeExp.png", plot = lifeExp_plot, width = 12, height = 10, dpi = 300, units = "cm")
+```
+**Note** `ggsave` saves the last plot by default, so `plot` argument can be omitted. But if you created plots earlier in your script and can save it now, you can specify which plot to save.
+```
+#saves the last plot by default
+ggsave("myPlot.pdf")
+
+#can specify what plot to save
+ggsave("myPlot.pdf", plot=fp1)
 ```
 
 This is a taste of what you can do with `ggplot2`. RStudio provides a really useful [cheat sheet][cheat] of the different layers available, and more extensive documentation is available on the [ggplot2 website][ggplot-doc]. Finally, if you have no idea how to change something, a quick Google search will usually send you to a relevant question and answer on Stack Overflow with reusable code to modify!
@@ -322,6 +348,7 @@ This is a taste of what you can do with `ggplot2`. RStudio provides a really use
 > > ggplot(data = gapminder, aes(x = gdpPercap, fill=continent)) +
 > >  geom_density(alpha=0.6) + facet_wrap( ~ year) + scale_x_log10()
 > > ```
+
 
 ## Demo some more advanced features
 If time permits, the following interactive activities can be run to showcase some of the cool stuff you can do with `ggplot` and `R`.
