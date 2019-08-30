@@ -1,6 +1,6 @@
 # Software Carpentry Workshop
 
-## Lesson4: Data visualization with ggplot2
+## Lesson5: Data visualization with ggplot2
 This lesson is based on [this Software Carpentry lesson](http://swcarpentry.github.io/r-novice-gapminder/08-plot-ggplot2/index.html)
 
 #### Please make sure your directory structure is setup as described [here](https://github.com/uta-carpentries/SoftwareCarpentryWorkshops_general/blob/master/Data_DirectoryStructure_Setup.md)
@@ -82,6 +82,8 @@ ggplot(data = gapminder, aes(x = gdpPercap, y = lifeExp)) +
   geom_point()
 ```
 
+# Emphasis what is absolutely necessary to make a plot
+
 > ### Challenge 1
 >
 > Modify the example so that the figure shows how life expectancy has changed over time:
@@ -115,6 +117,9 @@ ggplot(data = gapminder, aes(x = gdpPercap, y = lifeExp)) +
 
 
 ## Layers
+
+
+# Specify what each layer contains
 
 Using a scatterplot probably isn't the best for visualizing change over time. Instead, let's tell `ggplot` to visualize the data as a line plot:
 
