@@ -165,7 +165,7 @@ layer(
 ) 
 ```
 When `geom_point()` is called, mapping(aes) and data and mapping(aes) take values specified in `ggplot()`, and `stat` and `position` arguments take specified defaults. Different combinations of these components generate different geoms. You can have geom_line(), geom_bar(), geom_boxplot(), geom_text(), geom_errorbar()… over 30 geoms.
-Here are the setting for `geom_bar()`:
+Here are the settings for `geom_bar()`:
 ```
 layer(
   mapping = NULL, 
@@ -175,8 +175,9 @@ layer(
   position = "stack"
 )
 ```
-Here is a full [documentation for ggplot2 package](https://cran.r-project.org/web/packages/ggplot2/ggplot2.pdf)
-What is important here is to know that you can specify these setting for every layer separetely as we have seen in the previous example when we specified mapping for geom_line():  `geom_line(aes(color=continent))`
+Here is a full [documentation for ggplot2 package](https://cran.r-project.org/web/packages/ggplot2/ggplot2.pdf).
+What is important here is to know that you can specify these setting for every layer separetely as we have seen in the previous example when we specified mapping for geom_line():  `geom_line(aes(color=continent))`.  
+
 
 > ### Tip: Setting an aesthetic to a value instead of a mapping
 >
@@ -220,7 +221,7 @@ ggplot(data=sweden, aes(x=year, y=lifeExp)) + geom_col()
 ```
 We ran into problems using `geom_bar()` because the `stat` argument in `geom_bar()` is set to `count`. This means that the count of observation for `x` varaible will be plotted, so `y` should not be specified. That is why you see "Error: stat_count() must not be used with a y aesthetic."  So you either need to specify `stat="identity"` for `geom_bar()` or use `geom_col` where `stat="identity"` is a default setting.  
 
-`Stat` is a very useful argument as it allows you to plot transformed data. Say, you want to plot the mean values of life expectancy over years and countries for every continent.  
+`Stat` is a very useful argument as it allows you to plot transformed data. What is you want to plot the mean values of life expectancy over years and countries for every continent.  
 
 ```{r}
 ggplot(data=gapminder, aes(x=continent, y=lifeExp)) + geom_bar(aes(fill = continent), stat="summary",fun.y="mean") 
@@ -333,7 +334,7 @@ ggplot(data = az.countries, aes(x = year, y = lifeExp, color=continent)) +
   theme(axis.text.x=element_text(angle=45), axis.ticks.x=element_blank())
 ```
 
-## Exporting the plot . 
+## Exporting the plot
 
 The `ggsave()` function allows you to export a plot created with `ggplot`. You can specify the dimension and resolution of your plot by adjusting the appropriate arguments (`width`, `height` and `dpi`) to create high quality graphics for publication. In order to save the plot from above, we first assign it to a variable `lifeExp_plot`, then tell `ggsave` to save that plot in `png` format.
 
