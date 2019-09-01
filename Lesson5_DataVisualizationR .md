@@ -383,9 +383,10 @@ Now let's finish this lesson practicing making bar plots!
 > Follow life Expectancy over years example we discussed earlier. Use facet_wrap function.
 > 
 > #### Part 3.
-> Can you explain what information is plotted with this code generates?
+> Can you explain what information is plotted with this code?
 >```{r}
-> ggplot(data=gapminder, aes(x=continent, y=lifeExp)) + geom_bar(aes(fill = continent), stat="summary",fun.y="mean")
+> ggplot(data=gapminder, aes(x=continent, y=lifeExp)) + 
+>        geom_bar(aes(fill = continent), stat="summary",fun.y="mean")
 >```
 >
 > > #### Solution to Part 1
@@ -413,7 +414,8 @@ Now let's finish this lesson practicing making bar plots!
 > >        title = "Figure 1",             # main title of figure
 > >        fill = "Continent"              # title of legend
 > >        ) +
-> >        theme(axis.text.x=element_text(angle=45), axis.ticks.x=element_blank(), axis.title=element_text(size=14))
+> >        theme(axis.text.x=element_text(angle=45), axis.ticks.x=element_blank(), 
+> >              axis.title=element_text(size=14))
 > > ```
 > > 
 > > #### Solution to Part 3
