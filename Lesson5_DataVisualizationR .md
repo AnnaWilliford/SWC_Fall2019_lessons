@@ -11,7 +11,7 @@ R is one of the most powerful programming language for visualizing data. It isof
 
 
 ## Objectives
-- To be able to use `ggplot2` to generate publication quality graphics.
+- To be able to use `ggplot2` to generate publication-quality graphics.
 - To understand the basic *grammar of graphics*, including the aesthetics and geometry layers, adding statistics, transforming scales, and coloring or panelling by groups.
 #### Keypoints
 - Use `ggplot2` to create plots.
