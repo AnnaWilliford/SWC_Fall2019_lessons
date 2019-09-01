@@ -24,7 +24,7 @@ Plotting our data is one of the best ways to quickly explore it and the various 
 
 There are three main plotting systems in R, the [base plotting system][base], the [lattice][lattice] package, and the [ggplot2][ggplot2] package.
 
-[base]: http://www.statmethods.net/graphs/
+[base]: https://www.rdocumentation.org/packages/graphics/versions/3.6.1
 [lattice]: http://www.statmethods.net/advgraphs/trellis.html
 [ggplot2]: http://www.statmethods.net/advgraphs/ggplot2.html
 
