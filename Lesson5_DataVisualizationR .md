@@ -374,57 +374,52 @@ Now let's finish this lesson practicing making bar plots!
 >
 > Plot life expectancy over years for a country of your choice using geom_bar()
 > **Hint** See help for geom_bar: `?geom_bar`
-> Undestand the difference between `stat="count"` and `stat="identity"`
+> Understand the difference between `stat="count"` and `stat="identity"`
 >
-> Advanced:
->  - Transform the x axis to better visualise the data spread.
->  - Add a facet layer to panel the density plots by year.
+> #### Part 2.
+> Prepare a publication-ready plot (add labels, titles, etc,) to show population size
+> over years for every country that starts with letter 'B'. 
+> **Hint** 
+> Follow life Expectancy over years example we discussed earlier. Use facet_wrap function.
+> 
+> #### Part 3.
+> Can you explain what information is plotted with this code generates?
+>```{r}
+> ggplot(data=gapminder, aes(x=continent, y=lifeExp)) + geom_bar(aes(fill = continent), stat="summary",fun.y="mean")
+>```
 >
 > > #### Solution to Part 1
 > > 
-> >```
+> >```{r}
+> > # you must specify stat="identity" to get lifeExp on y axis:
 > > ggplot(data =gapminder[gapminder$country=="Sweden", ], aes(x = year, y = lifeExp)) +
 > >        geom_bar(fill='orange', stat="identity")
 > > 
-> > # the default stat for geom_bar() is `stat="count"`. In this case, the number of observation
-> > # for every year is plotted
+> > # the default stat for geom_bar() is stat="count". In this case, the number of observations
+> > # for every year is plotted:
 > > ggplot(data =gapminder[gapminder$country=="Sweden", ], aes(x = year)) +
 > >        geom_bar(fill='orange')
 > >```
-> > Advanced:
-> >  - Transform the x axis to better visualise the data spread.
-> >  - Add a facet layer to panel the density plots by year.
-> >
-> > ```{r ch5-sol}
-> > ggplot(data = gapminder, aes(x = gdpPercap, fill=continent)) +
-> >  geom_density(alpha=0.6) + facet_wrap( ~ year) + scale_x_log10()
+> > #### Solution to Part 2
+> > 
+> > ```{r }
+> > b_rows=startsWith(as.vector(gapminder$country), c('B') )
+> > b_countries <- gapminder[b_rows, ]
+> > ggplot(data = b_countries, aes(x = year, y = pop/1000000, fill=continent)) +
+> >        geom_bar(stat="identity") + facet_wrap( ~ country) +
+> >        labs(
+> >        x = "Year",                     # x axis title
+> >        y = "Population (Million)",     # y axis title
+> >        title = "Figure 1",             # main title of figure
+> >        fill = "Continent"              # title of legend
+> >        ) +
+> >        theme(axis.text.x=element_text(angle=45), axis.ticks.x=element_blank(), axis.title=element_text(size=14))
 > > ```
-
-Let's try another geom, `geom_bar()`.  To demonstrate, we will use a subset of our dataset, Sweden data.
-```{r}
-#extract Sweden data
-sweden=gapminder[gapminder$country=="Sweden", ]
-
-#first plot life expectancy over years as a line (you have done this before!)
-ggplot(data=sweden, aes(x=year, y=lifeExp)) + geom_line()
-
-#now use geom_bar() to show the same data
-#does this work?
-ggplot(data=sweden, aes(x=year, y=lifeExp)) + geom_bar()
-
-#But try this:
-ggplot(data=sweden, aes(x=year, y=lifeExp)) + geom_bar(stat="identity")
-#or
-ggplot(data=sweden, aes(x=year, y=lifeExp)) + geom_col()
-```
-We ran into problems using `geom_bar()` because the `stat` argument in `geom_bar()` is set to `count`. This means that the number of observations in `x` category will be plotted, so `y` should not be specified. That is why you see "Error: stat_count() must not be used with a y aesthetic."  So you either need to specify `stat="identity"` for `geom_bar()` or use `geom_col` where `stat="identity"` is a default setting.  
-
-`Stat` is a very useful argument as it allows you to plot transformed data. What is you want to plot the mean values of life expectancy over years and countries for every continent.  
-
-```{r}
-ggplot(data=gapminder, aes(x=continent, y=lifeExp)) + geom_bar(aes(fill = continent), stat="summary",fun.y="mean") 
-```
-
+> > 
+> > #### Solution to Part 3
+> > 
+> > A barplot of average life expectancy across years and countries for every continent.
+> >
 
 
 ## Demo some more advanced features
@@ -432,11 +427,11 @@ If time permits, the following interactive activities can be run to showcase som
 
 Let's do this in terms of one of the cooler visualizations directly from the [**Gapminder** website](https://www.gapminder.org/tools/#_chart-type=bubbles). This visualization shows the relationship between income and life expectancy for all nations in the dataset. The points are scaled in size based on the population size of the nation and colored based on continent. So there is a lot of details here. 
 
-> ### Challenge 6a
+> ### Challenge
 >
 > Can we create something pretty similar using `ggplot`? What variables in our dataset needs to be mapped to what aesthetics to achive this?
 >
-> > #### Solution to challenge 6a
+> > #### Solution
 > >
 > > x = income
 > > y = life expectancy
