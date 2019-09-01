@@ -192,7 +192,7 @@ ggplot(data = gapminder, aes(x=year, y=lifeExp, by=country)) +
 >
 > Switch the order of the point and line layers from the previous example. What happened?
 >
-> > #### Solution to challenge 3
+> > #### Solution
 > >
 > > Switch the order of the point and line layers from the previous example. What happened?
 > >
@@ -378,11 +378,11 @@ Now let's finish this lesson practicing making bar plots
 >  - Transform the x axis to better visualise the data spread.
 >  - Add a facet layer to panel the density plots by year.
 >
-> > #### Solution 
-> > Part 1
+> > #### Solution to Part 1
+> >```
 > > ggplot(data =gapminder[gapminder$country=="Sweden", ], aes(x = year, y = lifeExp)) +
 > >        geom_bar(fill='orange', stat="identity")
-> >
+> >```
 > > Advanced:
 > >  - Transform the x axis to better visualise the data spread.
 > >  - Add a facet layer to panel the density plots by year.
