@@ -368,7 +368,7 @@ This is a taste of what you can do with `ggplot2`. RStudio provides a really use
 [cheat]: http://www.rstudio.com/wp-content/uploads/2015/03/ggplot2-cheatsheet.pdf
 [ggplot-doc]: http://docs.ggplot2.org/current/
 
-Now let's finish this lesson practicing making bar plots
+Now let's finish this lesson practicing making bar plots!
 > ### Challenge 
 > #### Part 1.
 >
@@ -386,7 +386,8 @@ Now let's finish this lesson practicing making bar plots
 > > ggplot(data =gapminder[gapminder$country=="Sweden", ], aes(x = year, y = lifeExp)) +
 > >        geom_bar(fill='orange', stat="identity")
 > > 
-> > # the default stat for geom_bar() is `stat="count"`. In this case, the number of observation for every year is plotted
+> > # the default stat for geom_bar() is `stat="count"`. In this case, the number of observation
+> > # for every year is plotted
 > > ggplot(data =gapminder[gapminder$country=="Sweden", ], aes(x = year)) +
 > >        geom_bar(fill='orange')
 > >```
