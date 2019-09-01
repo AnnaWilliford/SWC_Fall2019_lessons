@@ -26,9 +26,9 @@ There are three main plotting systems in R, the [base plotting system][base], th
 
 [base]: https://www.rdocumentation.org/packages/graphics/versions/3.6.1
 [lattice]: http://www.statmethods.net/advgraphs/trellis.html
-[ggplot2]: http://www.statmethods.net/advgraphs/ggplot2.html
+[ggplot2]: http://docs.ggplot2.org/current/
 
-Today we'll be learning about the `ggplot2` package, because it is the most effective for creating publication quality graphics.
+Today we'll be learning about the `ggplot2` package, because it is the most effective for creating publication-quality graphics.
 
 `ggplot2` is built on the *grammar of graphics*, the idea that any plot can be generated from the same set of components: a **data** set, a **coordinate system**, and a set of **geoms** (the visual representation of data points).
 
