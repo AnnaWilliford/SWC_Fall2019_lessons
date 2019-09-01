@@ -95,7 +95,7 @@ The **three components that must be specified** (minimum) to build a plot with '
 * geometric oblects (geom)
 
 
-> ### Challenge 1
+> ### Challenge
 >
 > Modify the example so that the figure shows how life expectancy has changed over time:
 > 
@@ -105,7 +105,7 @@ The **three components that must be specified** (minimum) to build a plot with '
 > 
 > Hint: the gapminder dataset has a column called "year", which should appear on the x-axis.
 > 
-> > #### Solution to challenge 1
+> > #### Solution to challenge
 > >
 > > Here is one possible solution:
 > >
@@ -113,11 +113,11 @@ The **three components that must be specified** (minimum) to build a plot with '
 > > ggplot(data = gapminder, aes(x = year, y = lifeExp)) + geom_point()
 > > ```
 >
-> ### Challenge 2
+> ### Challenge
 >
 > In the previous examples and challenge we've used the `aes` function to tell the scatterplot **geom** about the **x** and **y** locations of each point. Another *aesthetic* property we can modify is the point *color*. Modify the code from the previous challenge to **color** the points by the "continent" column. What trends do you see in the data? Are they what you expected?
 >
-> > #### Solution to challenge 2
+> > #### Solution to challenge
 > >
 > > In the previous examples and challenge we've used the `aes` function to tell the scatterplot **geom** about the **x** and **y** locations of each point. Another *aesthetic* property we can modify is the point *color*. Modify the code from the previous challenge to **color** the points by the "continent" column. What trends do you see in the data? Are they what you expected?
 > >
@@ -188,7 +188,7 @@ What is important here is to know that you can specify these settings for every 
 ggplot(data = gapminder, aes(x=year, y=lifeExp, by=country)) +
      geom_line(color="blue") + geom_point()
 ```
-> ### Challenge 3
+> ### Challenge
 >
 > Switch the order of the point and line layers from the previous example. What happened?
 >
@@ -266,13 +266,14 @@ ggplot(data = gapminder, aes(x = gdpPercap, y = lifeExp)) +
 
 There are two ways an *aesthetic* can be specified. Here we *set* the **size** aesthetic by passing it as an argument to `geom_smooth`. Previously in the lesson we've used the `aes` function to define a *mapping* between data variables and their visual representation.
 
-> ### Challenge 4a
+> ### Challenge 
+> Part 1.
 >
 > Modify the color and size of the points on the point layer in the previous example.
 >
 > Hint: do not use the `aes` function.
 >
-> > #### Solution to challenge 4a
+> > #### Solution to Part 1.
 > >
 > > Modify the color and size of the points on the point layer in the previous example.
 > >
@@ -284,11 +285,12 @@ There are two ways an *aesthetic* can be specified. Here we *set* the **size** a
 > >  geom_smooth(method="lm", size=1.5)
 > > ```
 
-> ### Challenge 4b
+> ### Challenge
+> Part 2.
 >
-> Modify your solution to Challenge 4a so that the points are now a different shape and are colored by continent with new trendlines.  Hint: The color argument can be used inside the aesthetic.
+> Modify your solution to Part 1 so that the points are now a different shape and are colored by continent with new trendlines.  Hint: The color argument can be used inside the aesthetic.
 >
-> > #### Solution to challenge 4b
+> > #### Solution to Part 2.
 > >
 > > Modify Challenge 4 so that the points are now a different shape and are colored by continent with new trendlines.
 > >
@@ -311,7 +313,7 @@ Earlier we visualized the change in life expectancy over time across all countri
 ```{r facet}
 az_rows=startsWith(as.vector(gapminder$country), c('A','Z') )
 az_countries <- gapminder[az_rows, ]
-ggplot(data = az.countries, aes(x = year, y = lifeExp, color=continent)) +
+ggplot(data = az_countries, aes(x = year, y = lifeExp, color=continent)) +
   geom_line() + facet_wrap( ~ country)
 ```
 
@@ -321,10 +323,10 @@ The `facet_wrap` layer took a "formula" as its argument, denoted by the tilde (~
 
 To clean this figure up for a publication we need to change some of the text elements. The x-axis is too cluttered, and the y axis should read "Life expectancy", rather than the column name in the data frame.
 
-We can do this by adding a couple of different layers. The **theme** layer controls the axis text, and overall text size. Labels for the axes, plot  title and any legend can be set using the `labs` function. Legend titles are set using the same names we used in the `aes` specification. Thus below the color legend title is set using `color = "Continent"`, while the title  of a fill legend would be set using `fill = "MyTitle"`. 
+We can do this by adding a couple of different layers. The **theme** layer controls the axis text, and overall text size. Labels for the axes, plot  title and any legend can be set using the `labs` function. Legend titles are set using the same names we used in the `aes` specification. Thus below the color legend title is set using `color = "Continent"`, while the title  of a fill legend would be set using `fill = "MyTitle"`.  `Fill` is used instead of `color` when geoms are filled with color, like bar plots, for example.
 
 ```{r theme}
-ggplot(data = az.countries, aes(x = year, y = lifeExp, color=continent)) +
+ggplot(data = az_countries, aes(x = year, y = lifeExp, color=continent)) +
   geom_line() + facet_wrap( ~ country) +
   labs(
     x = "Year",              # x axis title
@@ -340,7 +342,7 @@ ggplot(data = az.countries, aes(x = year, y = lifeExp, color=continent)) +
 The `ggsave()` function allows you to export a plot created with `ggplot`. You can specify the dimension and resolution of your plot by adjusting the appropriate arguments (`width`, `height` and `dpi`) to create high quality graphics for publication. In order to save the plot from above, we first assign it to a variable `lifeExp_plot`, then tell `ggsave` to save that plot in `png` format.
 
 ```{r theme}
-lifeExp_plot <- ggplot(data = az.countries, aes(x = year, y = lifeExp, color=continent)) +
+lifeExp_plot <- ggplot(data = az_countries, aes(x = year, y = lifeExp, color=continent)) +
   geom_line() + facet_wrap( ~ country) +
   labs(
     x = "Year",              # x axis title
@@ -366,18 +368,20 @@ This is a taste of what you can do with `ggplot2`. RStudio provides a really use
 [cheat]: http://www.rstudio.com/wp-content/uploads/2015/03/ggplot2-cheatsheet.pdf
 [ggplot-doc]: http://docs.ggplot2.org/current/
 
-
-> ### Challenge 5
+Now let's finish this lesson practicing making bar plots
+> ### Challenge 
+> Part 1.
 >
-> Create a density plot of GDP per capita, filled by continent.
+> Plot life expectancy over years for a country of your choice using geom_bar()
 >
 > Advanced:
 >  - Transform the x axis to better visualise the data spread.
 >  - Add a facet layer to panel the density plots by year.
 >
-> > #### Solution to challenge 5
-> >
-> > Create a density plot of GDP per capita, filled by continent.
+> > #### Solution 
+> > Part 1
+> > ggplot(data =gapminder[gapminder$country=="Sweden", ], aes(x = year, y = lifeExp)) +
+> >        geom_bar(fill='orange', stat="identity")
 > >
 > > Advanced:
 > >  - Transform the x axis to better visualise the data spread.
