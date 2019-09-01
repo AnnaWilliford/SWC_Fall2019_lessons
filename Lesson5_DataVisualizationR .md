@@ -52,10 +52,14 @@ Remember that in order to work with `ggplot2` package, we need to load it into R
 library(ggplot2)
 ```
 
-We now must load our **gapminder** dataset into `R`.
+Now let's load our **gapminder** dataset into `R`.
 
 ```{r load_gaminder, message=FALSE}
 gapminder <- read.table("gapminder.txt", header=TRUE, sep="\t")
+
+#view the dataset to know what variables are present (or what can be potentially plotted)
+head(gapminder)
+#or view as a table using environment tab in the top-right panel
 ```
 
 We are now ready to plot. Let's start off with an example:
@@ -67,8 +71,9 @@ ggplot(data = gapminder, aes(x = gdpPercap, y = lifeExp)) +
 
 So the first thing we do is call the `ggplot` function. This function lets R know that we're creating a new plot, and any of the arguments we give the `ggplot` function are the *global* options for the plot: they apply to all layers on the plot.
 
-We've passed in two arguments to `ggplot`. First, we tell `ggplot` what data we want to show on our figure, in this example the gapminder data we read in earlier. For the second argument we passed in the `aes` function, which tells `ggplot` how variables in the **data** map to *aesthetic* properties of the figure, in this case the **x** and **y** locations. Here we told `ggplot` we want to plot the "gdpPercap" column of the gapminder data frame on the x-axis, and the "lifeExp" column on the y-axis. Notice that we didn't need to explicitly pass `aes` these columns (e.g. `x = gapminder[, "gdpPercap"]`), this is because `ggplot` is smart enough to know to look in the **data** for that column!
+We've passed in two arguments to `ggplot`. First, we tell `ggplot` what data we want to show on our figure, in this example the gapminder data we read in earlier. For the second argument we passed in the `aes` function, which tells `ggplot` how variables in the **data** map to *aesthetic* properties of the figure, in this case the **x** and **y** locations. Here we told `ggplot` we want to plot the "gdpPercap" column of the gapminder data frame on the x-axis, and the "lifeExp" column on the y-axis. Notice that we didn't need to explicitly pass these columns to `aes` function (e.g. `x = gapminder[, "gdpPercap"]`), this is because `ggplot` is smart enough to know to look in the **data** for that column!
 
+Let's break this long command into parts:
 By itself, the call to `ggplot` isn't enough to draw a figure:
 
 ```{r}
@@ -82,7 +87,13 @@ ggplot(data = gapminder, aes(x = gdpPercap, y = lifeExp)) +
   geom_point()
 ```
 
-# Emphasis what is absolutely necessary to make a plot
+And here you have it - your first plot with `ggplot2`!  
+The **three components that must be specified** (minmum) to build a plot with 'ggplot2" are:
+
+* data
+* aesthetic mappings (aes)
+* geometric oblects (geom)
+
 
 > ### Challenge 1
 >
