@@ -88,7 +88,7 @@ ggplot(data = gapminder, aes(x = gdpPercap, y = lifeExp)) +
 ```
 
 And here you have it - your first plot with `ggplot2`!  
-The **three components that must be specified** (minimum) to build a plot with 'ggplot2" are:
+The **three components that must be specified** (minimum) to build a plot with `ggplot2` are:
 
 * data
 * aesthetic mappings (aes)
