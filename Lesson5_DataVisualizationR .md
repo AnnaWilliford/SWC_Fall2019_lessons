@@ -7,7 +7,7 @@ This lesson is based on [this Software Carpentry lesson](http://swcarpentry.gith
 
 
 ## Introduction
-R is one of the most powerful pieces of software for visualizing data. It is even possible to generate publication-quality graphics. Today, we will give you a flavor of some of the quality plotting you can produce using the `R` package [`ggplot2`](http://ggplot2.tidyverse.org/). `ggplot2` is perhaps the best package for intuitive generation of high-quality figures. We will continue using the **gapminder** dataset and will visualize some of the trends in these data with `ggplot2`. Check out some of the interesting dynamic plots available from the [Gapminder website](https://www.gapminder.org/tools/#$chart-type=bubbles). By the end of this lesson you will know the basic principles necessary to produce similar, static versions of many of the example plots you are looking at. 
+R is one of the most powerful programming language for visualizing data. It isoften used to generate publication-quality graphics. Today, we will give you a flavor of some of the quality plotting you can produce using the `R` package [`ggplot2`](http://ggplot2.tidyverse.org/). `ggplot2` is perhaps the best package for intuitive generation of high-quality figures. We will continue using the **gapminder** dataset and will visualize some of the trends in these data with `ggplot2`. Check out some of the interesting dynamic plots available from the [Gapminder website](https://www.gapminder.org/tools/#$chart-type=bubbles). By the end of this lesson you will know the basic principles necessary to produce similar, static versions of many of the example plots you are looking at. 
 
 
 ## Objectives
