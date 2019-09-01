@@ -105,7 +105,7 @@ The **three components that must be specified** (minimum) to build a plot with `
 > 
 > Hint: the gapminder dataset has a column called "year", which should appear on the x-axis.
 > 
-> > #### Solution to challenge
+> > #### Solution
 > >
 > > Here is one possible solution:
 > >
@@ -117,7 +117,7 @@ The **three components that must be specified** (minimum) to build a plot with `
 >
 > In the previous examples and challenge we've used the `aes` function to tell the scatterplot **geom** about the **x** and **y** locations of each point. Another *aesthetic* property we can modify is the point *color*. Modify the code from the previous challenge to **color** the points by the "continent" column. What trends do you see in the data? Are they what you expected?
 >
-> > #### Solution to challenge
+> > #### Solution
 > >
 > > In the previous examples and challenge we've used the `aes` function to tell the scatterplot **geom** about the **x** and **y** locations of each point. Another *aesthetic* property we can modify is the point *color*. Modify the code from the previous challenge to **color** the points by the "continent" column. What trends do you see in the data? Are they what you expected?
 > >
