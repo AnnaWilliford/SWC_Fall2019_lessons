@@ -129,7 +129,8 @@ The **three components that must be specified** (minimum) to build a plot with `
 
 ## Layers
 
-Using a scatterplot probably isn't the best for visualizing change over time. Instead, let's tell `ggplot` to visualize the data as a line plot:
+Now let's talk about layers. In `ggplot2`, layers are added with `+` operator, giving an intuitive understanding about the content of each layer. In the above example, `geom_point()` layer contained points.
+Now, using a scatterplot probably isn't the best for visualizing change over time. Instead, let's tell `ggplot` to visualize the data as a line plot:
 
 ```{r lifeExp-line}
 ggplot(data = gapminder, aes(x=year, y=lifeExp, by=country, color=continent)) +
