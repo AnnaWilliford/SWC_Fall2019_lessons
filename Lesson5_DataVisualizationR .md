@@ -165,7 +165,7 @@ layer(
 ) 
 ```
 When `geom_point()` is called, mapping(aes) and data and mapping(aes) take values specified in `ggplot()`, and `stat` and `position` arguments take specified defaults. Different combinations of these components generate different geoms. You can have geom_line(), geom_bar(), geom_boxplot(), geom_text(), geom_errorbar()… over 30 geoms.
-Here are the settings for `geom_bar()`:
+Here are the settings for `geom_bar()`. You will get to make a bar plot at the end of the lesson.
 ```
 layer(
   mapping = NULL, 
@@ -176,8 +176,9 @@ layer(
 )
 ```
 Here is a full [documentation for ggplot2 package](https://cran.r-project.org/web/packages/ggplot2/ggplot2.pdf).
-What is important here is to know that you can specify these setting for every layer separetely as we have seen in the previous example when we specified mapping for geom_line():  `geom_line(aes(color=continent))`.  
-
+What is important here is to know that you can specify these settings for every layer separately as we have seen in the previous example when we specified mapping for geom_line():  `geom_line(aes(color=continent))`.  
+  
+ 
 
 > ### Tip: Setting an aesthetic to a value instead of a mapping
 >
@@ -219,7 +220,7 @@ ggplot(data=sweden, aes(x=year, y=lifeExp)) + geom_bar(stat="identity")
 #or
 ggplot(data=sweden, aes(x=year, y=lifeExp)) + geom_col()
 ```
-We ran into problems using `geom_bar()` because the `stat` argument in `geom_bar()` is set to `count`. This means that the count of observation for `x` varaible will be plotted, so `y` should not be specified. That is why you see "Error: stat_count() must not be used with a y aesthetic."  So you either need to specify `stat="identity"` for `geom_bar()` or use `geom_col` where `stat="identity"` is a default setting.  
+We ran into problems using `geom_bar()` because the `stat` argument in `geom_bar()` is set to `count`. This means that the number of observations in `x` category will be plotted, so `y` should not be specified. That is why you see "Error: stat_count() must not be used with a y aesthetic."  So you either need to specify `stat="identity"` for `geom_bar()` or use `geom_col` where `stat="identity"` is a default setting.  
 
 `Stat` is a very useful argument as it allows you to plot transformed data. What is you want to plot the mean values of life expectancy over years and countries for every continent.  
 
@@ -305,11 +306,11 @@ Earlier we visualized the change in life expectancy over time across all countri
 
 > ### Tip
 >
-> We start by subsetting the data.  We use the `substr` function to pull out a part of a character string; in this case, the letters that occur in positions `start` through `stop`, inclusive, of the `gapminder$country` vector. The operator `%in%` allows us to make multiple comparisons rather than write out long subsetting conditions (in this case, `starts.with %in% c("A", "Z")` is equivalent to `starts.with == "A" | starts.with == "Z"`)
+> We start by subsetting the data. We use `startsWith` function to select names of countries that start with either letter 'A' or 'Z'. This function returns a logical vector. We can then use it to subset rows in `gapminder` dataset.  
 
 ```{r facet}
-starts.with <- substr(gapminder$country, start = 1, stop = 1)
-az.countries <- gapminder[starts.with %in% c("A", "Z"), ]
+az_rows=startsWith(as.vector(gapminder$country), c('A','Z') )
+az_countries <- gapminder[az_rows, ]
 ggplot(data = az.countries, aes(x = year, y = lifeExp, color=continent)) +
   geom_line() + facet_wrap( ~ country)
 ```
@@ -386,6 +387,32 @@ This is a taste of what you can do with `ggplot2`. RStudio provides a really use
 > > ggplot(data = gapminder, aes(x = gdpPercap, fill=continent)) +
 > >  geom_density(alpha=0.6) + facet_wrap( ~ year) + scale_x_log10()
 > > ```
+
+Let's try another geom, `geom_bar()`.  To demonstrate, we will use a subset of our dataset, Sweden data.
+```{r}
+#extract Sweden data
+sweden=gapminder[gapminder$country=="Sweden", ]
+
+#first plot life expectancy over years as a line (you have done this before!)
+ggplot(data=sweden, aes(x=year, y=lifeExp)) + geom_line()
+
+#now use geom_bar() to show the same data
+#does this work?
+ggplot(data=sweden, aes(x=year, y=lifeExp)) + geom_bar()
+
+#But try this:
+ggplot(data=sweden, aes(x=year, y=lifeExp)) + geom_bar(stat="identity")
+#or
+ggplot(data=sweden, aes(x=year, y=lifeExp)) + geom_col()
+```
+We ran into problems using `geom_bar()` because the `stat` argument in `geom_bar()` is set to `count`. This means that the number of observations in `x` category will be plotted, so `y` should not be specified. That is why you see "Error: stat_count() must not be used with a y aesthetic."  So you either need to specify `stat="identity"` for `geom_bar()` or use `geom_col` where `stat="identity"` is a default setting.  
+
+`Stat` is a very useful argument as it allows you to plot transformed data. What is you want to plot the mean values of life expectancy over years and countries for every continent.  
+
+```{r}
+ggplot(data=gapminder, aes(x=continent, y=lifeExp)) + geom_bar(aes(fill = continent), stat="summary",fun.y="mean") 
+```
+
 
 
 ## Demo some more advanced features
