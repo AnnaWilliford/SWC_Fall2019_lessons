@@ -370,18 +370,25 @@ This is a taste of what you can do with `ggplot2`. RStudio provides a really use
 
 Now let's finish this lesson practicing making bar plots
 > ### Challenge 
-> Part 1.
+> #### Part 1.
 >
 > Plot life expectancy over years for a country of your choice using geom_bar()
+> **Hint** See help for geom_bar: `?geom_bar`
+> Undestand the difference between `stat="count"` and `stat="identity"`
 >
 > Advanced:
 >  - Transform the x axis to better visualise the data spread.
 >  - Add a facet layer to panel the density plots by year.
 >
 > > #### Solution to Part 1
+> > 
 > >```
 > > ggplot(data =gapminder[gapminder$country=="Sweden", ], aes(x = year, y = lifeExp)) +
 > >        geom_bar(fill='orange', stat="identity")
+> > 
+> > # the default stat for geom_bar() is `stat="count"`. In this case, the number of observation for every year is plotted
+> > ggplot(data =gapminder[gapminder$country=="Sweden", ], aes(x = year)) +
+> >        geom_bar(fill='orange')
 > >```
 > > Advanced:
 > >  - Transform the x axis to better visualise the data spread.
