@@ -88,7 +88,7 @@ ggplot(data = gapminder, aes(x = gdpPercap, y = lifeExp)) +
 ```
 
 And here you have it - your first plot with `ggplot2`!  
-The **three components that must be specified** (minmum) to build a plot with 'ggplot2" are:
+The **three components that must be specified** (minimum) to build a plot with 'ggplot2" are:
 
 * data
 * aesthetic mappings (aes)
@@ -129,9 +129,6 @@ The **three components that must be specified** (minmum) to build a plot with 'g
 
 ## Layers
 
-
-# Specify what each layer contains
-
 Using a scatterplot probably isn't the best for visualizing change over time. Instead, let's tell `ggplot` to visualize the data as a line plot:
 
 ```{r lifeExp-line}
@@ -156,6 +153,30 @@ ggplot(data = gapminder, aes(x=year, y=lifeExp, by=country)) +
 ```
 
 In this example, the *aesthetic* mapping of **color** has been moved from the global plot options in `ggplot` to the `geom_line` layer so it no longer applies to the points. Now we can clearly see that the points are drawn on top of the lines.
+
+**In general**, each geom layer has 5 components that have different defaults depending on the geom type. Read more about layer [here]( https://rpubs.com/hadley/ggplot2-layers). For examle, `geom_point()` is really a short way of writing:
+```
+layer(
+  mapping = NULL, 
+  data = NULL,
+  geom = "point",
+  stat = "identity",
+  position = "identity"
+) 
+```
+When `geom_point()` is called, mapping(aes) and data and mapping(aes) take values specified in `ggplot()`, and `stat` and `position` arguments take specified defaults. Different combinations of these components generate different geoms. You can have geom_line(), geom_bar(), geom_boxplot(), geom_text(), geom_errorbar()… over 30 geoms.
+Here are the setting for `geom_bar()`:
+```
+layer(
+  mapping = NULL, 
+  data = NULL,
+  geom = "bar",
+  stat = "count",
+  position = "stack"
+)
+```
+Here is a full [documentation for ggplot2 package](https://cran.r-project.org/web/packages/ggplot2/ggplot2.pdf)
+What is important here is to know that you can specify these setting for every layer separetely as we have seen in the previous example when we specified mapping for geom_line():  `geom_line(aes(color=continent))`
 
 > ### Tip: Setting an aesthetic to a value instead of a mapping
 >
