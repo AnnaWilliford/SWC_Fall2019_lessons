@@ -356,7 +356,7 @@ Now let's finish this lesson practicing making bar plots!
 > Understand the difference between `stat="count"` and `stat="identity"`
 >
 > #### Part 2.
-> Prepare a publication-ready plot (add labels, titles, etc,) to show population size
+> Prepare a figure for publication(add labels, titles, etc.,) to show population size
 > over years for every country that starts with letter 'B'. 
 > **Hint** 
 > Follow life Expectancy over years example we discussed earlier. Use facet_wrap function.
