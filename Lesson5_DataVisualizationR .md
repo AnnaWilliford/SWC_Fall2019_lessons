@@ -204,31 +204,6 @@ ggplot(data = gapminder, aes(x=year, y=lifeExp, by=country)) +
 > >
 > > The lines now get drawn over the points!
 
-Let's try another geom, `geom_bar()`.  To demonstrate, we will use a subset of our dataset, Sweden data.
-```{r}
-#extract Sweden data
-sweden=gapminder[gapminder$country=="Sweden", ]
-
-#first plot life expectancy over years as a line (you have done this before!)
-ggplot(data=sweden, aes(x=year, y=lifeExp)) + geom_line()
-
-#now use geom_bar() to show the same data
-#does this work?
-ggplot(data=sweden, aes(x=year, y=lifeExp)) + geom_bar()
-
-#But try this:
-ggplot(data=sweden, aes(x=year, y=lifeExp)) + geom_bar(stat="identity")
-#or
-ggplot(data=sweden, aes(x=year, y=lifeExp)) + geom_col()
-```
-We ran into problems using `geom_bar()` because the `stat` argument in `geom_bar()` is set to `count`. This means that the number of observations in `x` category will be plotted, so `y` should not be specified. That is why you see "Error: stat_count() must not be used with a y aesthetic."  So you either need to specify `stat="identity"` for `geom_bar()` or use `geom_col` where `stat="identity"` is a default setting.  
-
-`Stat` is a very useful argument as it allows you to plot transformed data. What is you want to plot the mean values of life expectancy over years and countries for every continent.  
-
-```{r}
-ggplot(data=gapminder, aes(x=continent, y=lifeExp)) + geom_bar(aes(fill = continent), stat="summary",fun.y="mean") 
-```
-
 ## Transformations and statistics
 
 `ggplot` also makes it easy to overlay statistical models over the data. To demonstrate we'll go back to our first example:
