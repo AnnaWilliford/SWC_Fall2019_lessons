@@ -333,7 +333,7 @@ lifeExp_plot <- ggplot(data = az_countries, aes(x = year, y = lifeExp, color=con
 
 ggsave(filename = "lifeExp.png", plot = lifeExp_plot, width = 12, height = 10, dpi = 300, units = "cm")
 ```
-**Note** `ggsave` saves the last plot by default, so `plot` argument can be omitted. But if you created plots earlier in your script and can save it now, you can specify which plot to save.
+**Note** `ggsave` saves the last plot by default, so `plot` argument can be omitted. But if you created plots earlier in your script and want to save them later, you can specify which plot to save.
 ```
 #saves the last plot by default
 ggsave("myPlot.pdf")
