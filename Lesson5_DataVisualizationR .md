@@ -268,7 +268,8 @@ ggplot(data = gapminder, aes(x = gdpPercap, y = lifeExp)) +
 > >
 > > Modify Challenge 4 so that the points are now a different shape and are colored by continent with new trendlines.
 > >
-> > Hint: The color argument can be used inside the aesthetic.
+> > Hint: Use color argument inside aes().
+> >       See [here about shapes](https://ggplot2.tidyverse.org/articles/ggplot2-specs.html#point)
 > >
 > >```{r ch4b-sol}
 > > ggplot(data = gapminder, aes(x = gdpPercap, y = lifeExp, color = continent)) +
