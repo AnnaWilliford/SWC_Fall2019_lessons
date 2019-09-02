@@ -357,7 +357,7 @@ Now let's finish this lesson practicing making bar plots!
 >
 > #### Part 2.
 > Prepare a figure for publication(add labels, titles, etc.,) to show population size
-> over years for every country that starts with letter 'B'. 
+> over years for every country that starts with letter 'E'. 
 > **Hint** 
 > Follow life Expectancy over years example we discussed earlier. Use facet_wrap function.
 > 
@@ -383,9 +383,9 @@ Now let's finish this lesson practicing making bar plots!
 > > #### Solution to Part 2
 > > 
 > > ```{r }
-> > b_rows=startsWith(as.vector(gapminder$country), c('B') )
-> > b_countries <- gapminder[b_rows, ]
-> > ggplot(data = b_countries, aes(x = year, y = pop/1000000, fill=continent)) +
+> > e_rows=startsWith(as.vector(gapminder$country), c('E') )
+> > e_countries <- gapminder[e_rows, ]
+> > ggplot(data = e_countries, aes(x = year, y = pop/1000000, fill=continent)) +
 > >        geom_bar(stat="identity") + facet_wrap( ~ country) +
 > >        labs(
 > >        x = "Year",                     # x axis title
@@ -393,8 +393,8 @@ Now let's finish this lesson practicing making bar plots!
 > >        title = "Figure 1",             # main title of figure
 > >        fill = "Continent"              # title of legend
 > >        ) +
-> >        theme(axis.text.x=element_text(angle=45), axis.ticks.x=element_blank(), 
-> >              axis.title=element_text(size=14))
+> >        theme(axis.text.x=element_text(angle=45), axis.ticks.x=element_blank()) +
+> >        theme_bw()
 > > ```
 > > 
 > > #### Solution to Part 3
