@@ -419,11 +419,11 @@ Let's do this in terms of one of the cooler visualizations directly from the [**
 > > size = population size
 > > color = continent
 > >
-> ### Challenge 6b
+> ### Challenge 
 > 
-> Use these mappings to produce a similar plot for 2007. Bonus points if you can use `dplyr` to do it.
+> Use mappings above to produce a similar plot for 2007. Bonus points if you can use `dplyr` to do it.
 >
-> >  #### Solution fo challenge 6b
+> >  #### Solution 
 > >
 > > ```{r ch6b-bubble-plot}
 > > # note that you can save plot to variable and plot later
